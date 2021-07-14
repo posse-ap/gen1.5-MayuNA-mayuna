@@ -1,0 +1,15 @@
+version: '3'             #フォーマットのバージョン。現在は3が最新。
+services:                #アプリケーションを動かせるための記述
+  web:                   #コンテナ名
+    image: nginx:latest  #イメージ名
+    ports:               #使用ポート
+      - "80:80"
+    depends_on:
+      - app
+    volumes: #以下を追記　[ホストのファイルパス]:[コンテナファイルパス]
+      - ./web/default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/var/www/html
+  app:
+    image: php:7.2.15-fpm
+    volumes:
+        - ./src:/var/www/html
