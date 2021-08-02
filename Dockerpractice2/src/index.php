@@ -1,8 +1,4 @@
-<?php
 
-phpinfo();
-
-?>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
