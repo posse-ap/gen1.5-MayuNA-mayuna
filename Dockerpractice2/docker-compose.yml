@@ -24,6 +24,7 @@ services:                #アプリケーションを動かせるための記述
       context: ./mysql
       dockerfile: Dockerfile
     environment:
+      - MYSQL_DATABASE=questions
       - MYSQL_USER=mayuna_user
       - MYSQL_PASSWORD=pass
       - MYSQL_ROOT_PASSWORD=pass
