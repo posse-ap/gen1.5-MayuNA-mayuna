@@ -26,20 +26,17 @@ services:                #アプリケーションを動かせるための記述
     #   dockerfile: Dockerfile
     image: mysql:latest
     environment:
-      - MYSQL_DATABASE=questions
+      - MYSQL_DATABASE=posse
       - MYSQL_USER=mayuna_user
       - MYSQL_PASSWORD=pass
       - MYSQL_ROOT_PASSWORD=pass
     ports:
       - "3306:3306"
     volumes:
-      # MySQLの設定ファイル
+      - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./mysql/data:/var/lib/mysql
       - ./mysql/mysql_conf:/etc/mysql/conf.d
-      # - ./mysql/sql:/var/lib/mysql
-    # network_mode: "docker_network"
-
-# networks:
-#   docker_network:
+      
   phpmyadmin:
     container_name: test_phpmyadmin
     image: phpmyadmin/phpmyadmin

@@ -1,9 +1,13 @@
-INSERT INTO `questions` (`id`, `name`) VALUES ('1', '東京の難読地名クイズ'), ('2', '広島県の難読地名クイズ');
+DROP SCHEMA IF EXISTS posse;
+CREATE SCHEMA posse;
+USE posse;
+
+DROP TABLE IF EXISTS questions;
+CREATE TABLE questions (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  name VARCHAR(225) NOT NULL
+);
+
+INSERT INTO questions (id,name) VALUES ('1', '東京'), ('2', '広島県');
 
 
--- -- 二行ずつ挿入してしまったため
--- INSERT INTO `choices` (`id`, `question_id`, `name`, `valid`) VALUES ('1', '1', 'たかなわ', '1'), ('2', '1', 'たかわ', 0);
-
--- INSERT INTO `choices` (`id`, `question_id`, `name`, `valid`) VALUES ('3', '1', 'こうわ', '0'), ('4', '2' , 'むこうひら'0);
-
--- INSERT INTO `choices` (`id`, `question_id`, `name`, `valid`) VALUES ('5', '2', 'むきひら', '0'), ('6', '2', 'むかいなだ', '1');

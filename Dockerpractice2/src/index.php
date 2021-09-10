@@ -1,7 +1,7 @@
 <?php
 try {
   $pdo = new PDO(
-    'mysql:host=db;dbname=questions;charset=utf8mb4',
+    'mysql:host=db;dbname=posse;charset=utf8mb4',
     'mayuna_user',
     'pass',
     [
@@ -10,14 +10,12 @@ try {
       PDO::ATTR_EMULATE_PREPARES=>false
     ]
   );
-  $stmt = $pdo->query("SELECT * FROM questions");
-  $questions = $stmt->fetchAll();
-  foreach($questions as $question){
-    echo ($question['id']) ;
-    echo ($question['name']);
-  }
+  $stmt = $pdo->prepare('SELECT * FROM questions WHERE id = :id');
+  $stmt->bindParam(':id', $_GET['id']);
+  $stmt->execute();
+
   
-  
+  $questions = $stmt->fetch();
 
 } catch (PDOException $e) {
   echo $e->getMessage() . PHP_EOL;
@@ -34,11 +32,7 @@ try {
   </head>
   
   <body>
-  <h1><?php 
-  if($question['id'] == 1){
-    echo $question['name'];
-  }
-     ?>の難読地名クイズ</h1>
+  <h1><?php echo $questions['name']?>の難読地名クイズ</h1>
         <div class="loop1" id="loop1">
             <script src="./index.js"></script>
         </div>
