@@ -105,11 +105,7 @@ input, select {
     vertical-align:middle;
 }
 
-
-
-
-
-
+/* css初期化終了 */
 
 .loop1{
       margin:0 auto;
@@ -167,7 +163,7 @@ input, select {
 .box{   display:none;
         padding: 17px;
         border :solid 1px #ddd;
-        width: 92%;
+        width: 74.5%;
         background-color: #F5F5F5;
         margin-bottom: 40px;
 }
@@ -175,27 +171,20 @@ input, select {
       padding:0;
 }
 
-.answerbox{
-    display: none;
-    height: 77px;
-    line-height: 30px;
-}
+
 .ansT{
     border-bottom: 3px solid #2B7DFF;
     padding-bottom: 6px;
-    display:block;
+    display:inline-block;
     font-weight: bold;
 }
 .ansF{
     border-bottom: 3px solid #FE5128;
     padding-bottom: 6px;
-    display:block;
+    display:inline-block;
     font-weight: bold;
 }
 
-.finish{
-      pointer-events: none;
-}
 #true_is{
       font-weight:400;
 }
