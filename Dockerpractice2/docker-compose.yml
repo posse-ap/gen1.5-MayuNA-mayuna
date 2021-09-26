@@ -20,10 +20,6 @@ services:                #アプリケーションを動かせるための記述
     # network_mode: "docker_network"
 
   db:
-    # container_name: mysql1
-    # build:
-    #   context: ./mysql
-    #   dockerfile: Dockerfile
     image: mysql:latest
     environment:
       - MYSQL_DATABASE=posse
@@ -35,7 +31,7 @@ services:                #アプリケーションを動かせるための記述
     volumes:
       - ./mysql/sql:/docker-entrypoint-initdb.d
       - ./mysql/data:/var/lib/mysql
-      - ./mysql/mysql_conf:/etc/mysql/conf.d
+      - ./mysql/my.conf:/etc/mysql/conf.d
       
   phpmyadmin:
     container_name: test_phpmyadmin

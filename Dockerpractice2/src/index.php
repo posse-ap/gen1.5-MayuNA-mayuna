@@ -15,7 +15,7 @@ try {
   $stmt->execute();
 
   
-  $questions = $stmt->fetch();
+  $questions = $stmt->fetchAll();
 
   // print_r($questions);
 
@@ -49,10 +49,10 @@ try {
   </head>
   
   <body>
-  <h1><?php echo $questions['name']?>の難読地名クイズ</h1>
+  <h1><?php echo $questions[0]['name']?>の難読地名クイズ</h1>
         <!-- <div class="loop1" id="loop1"> -->
         <div class="all">
-          <img src="<?php echo $questions['name']?>.png" class="image">
+          <img src="<?php echo $questions[0]['name']?>.png" class="image">
           <span class="under_line">1.この地名はなんて読む？</span><div class="green"></div>
 
           <?php 
@@ -66,13 +66,9 @@ try {
           $question_id2 = $choices[$number + 1]['question_id'];
           $question_id3 = $choices[$number + 2]['question_id'];
 
-          // $valid_id1 = $choices[$number]['valid'];
-          // $valid_id2 = $choices[$number + 1]['valid'];
-          // $valid_id3 = $choices[$number + 2]['valid'];
 
           $question_number = $choices[$number]['question_number'];
           $valid_num = 1;
-
 
           ?>
 
