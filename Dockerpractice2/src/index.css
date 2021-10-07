@@ -113,7 +113,7 @@ input, select {
 .all{
       /* text-align: center; */
       margin:0 auto;
-      width:58%;
+      width:43.6%;
 }
 
 
@@ -138,7 +138,7 @@ input, select {
 
 
 .button{
-        width:575px;
+        width:96%;
         display: block;
         border:1px solid #ebebeb;
         padding:13px;
@@ -163,7 +163,7 @@ input, select {
 .box{   display:none;
         padding: 17px;
         border :solid 1px #ddd;
-        width: 62.5%;
+        width: 94.5%;
         background-color: #F5F5F5;
         margin-bottom: 40px;
 }
