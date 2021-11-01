@@ -1,4 +1,40 @@
 <?php
+
+try{
+  $pdo = new PDO(
+    'mysql:host=db;dbname=media;charset=utf8mb4',
+    'mayuna_user',
+    'pass',
+    [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+      PDO::ATTR_EMULATE_PREPARES=>false
+    ]
+  );
+
+
+  if(isset($_POST['study_day'])){
+    $count = $pdo->exec('INSERT INTO study_time SET study_day="'. $_POST['study_day'] .'",study_month="'. substr($_POST['study_day'],0,7) .'",study_hour = "'. $_POST['study_hour'] .'"');
+  }
+
+  $contents_array = $_POST['contents_array'];
+  foreach($contents_array as $content){
+    $result = $pdo->exec('INSERT INTO study_contents SET study_content="'. $content .'"');
+  }
+
+  $languages_array = $_POST['languages_array'];
+  foreach($languages_array as $language){
+    $result1 = $pdo->exec('INSERT INTO study_languages SET study_language="'. $language .'"');
+  }
+
+  $today = date("Y-m-d");
+  $this_month = date("Y-m");
+  // print_r($today);
+} catch (PDOException $e) {
+  echo $e->getMessage() . PHP_EOL;
+  exit;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -37,93 +73,97 @@
           <div class="popup-inner" id="popup-inner">
             <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
             <div class="modal_main" id="modal_main">
-              <div class="modal_contents" id="modal_contents">
-                <div class="modal_left" id="modal_left">
-                  <div class="s_day" id="s_day">
-                    <h3>学習日</h3>
-                    <input class="inputs_day"type="text" id="calendar">
-                  </div>
-                  <div class="s_contents" id="s_contents">
-                     <h3>学習コンテンツ(複数選択可)</h3>
-
-                     <div class="radio-wrap">
-                      <label>
-                        <input type="checkbox" name="radio" value="radiobtn">
-                        <span class="radio_figure">N予備校</span>
-                      </label>
-                  
-                      <label>
-                        <input type="checkbox" name="radio" value="radiobtn">
-                        <span class="radio_figure">ドットインストール</span>
-                      </label><br>
-                      <label>
-                        <input type="radio" name="radio" value="radiobtn">
-                        <span class="radio_figure">POSSE課題</span>
-                      </label>
+              <form action="" method="post">
+                    
+                <div class="modal_contents" id="modal_contents">
+                  <div class="modal_left" id="modal_left">
+                    <div class="s_day" id="s_day">
+                      <h3>学習日</h3>
+                      <input class="inputs_day"type="text" id="calendar" name="study_day">
+                    </div>
+                    <div class="s_contents" id="s_contents">
+                       <h3>学習コンテンツ(複数選択可)</h3>
+  
+                       <div class="radio-wrap">
+                        <label>
+                          <input type="checkbox" value="1" name="contents_array[]">
+                          <span class="radio_figure">N予備校</span>
+                        </label>
+                    
+                        <label>
+                          <input type="checkbox" value="2" name="contents_array[]">
+                          <span class="radio_figure">ドットインストール</span>
+                        </label><br>
+                        <label>
+                          <input type="radio" value="3" name="contents_array[]">
+                          <span class="radio_figure">POSSE課題</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="s_language" id="s_language">
+                        <h3>学習言語(複数選択可)</h3>
+                        <div class="radio-wrap">
+                          <label>
+                            <input type="checkbox" value="4" name="languages_array[]">
+                            <span class="radio_figure">HTML</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" value="5" name="languages_array[]">
+                            <span class="radio_figure">CSS</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" value="6" name="languages_array[]">
+                            <span class="radio_figure">JavaScript</span>
+                          </label><br>
+                      
+                          <label>
+                            <input type="checkbox" value="7" name="languages_array[]">
+                            <span class="radio_figure">PHP</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" value="8" name="languages_array[]">
+                            <span class="radio_figure">Laravel</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" value="9" name="languages_array[]">
+                            <span class="radio_figure">SQL</span>
+                          </label>
+                          <label>
+                            <input type="checkbox" value="10" name="languages_array[]">
+                            <span class="radio_figure">SHELL</span>
+                          </label><br>
+                      
+                          <label>
+                            <input type="checkbox" value="11" name="languages_array[]">
+                            <span class="radio_figure">情報システム基礎知識(その他)</span>
+                          </label>
+                        </div>
+                        
                     </div>
                   </div>
-                  <div class="s_language" id="s_language">
-  　　　　　　　　　　　　<h3>学習言語(複数選択可)</h3>
-                      <div class="radio-wrap">
+                  <div class="modal_right" id="modal_right">
+                    <div class="s_time" id="s_time">
+                      <h3>学習時間</h3>
+                      <input class="inputs_day"type="text" name="study_hour">
+                    </div>
+                    <div class="comment_twitter" id="comment_twitter">
+                       <h3>Twitter用コメント</h3>
+                       <input class="input_twitter"type="text">
+                       　<div class="radio-wrapL">
                         <label>
                           <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">HTML</span>
-                        </label>
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">CSS</span>
-                        </label>
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">JavaScript</span>
+                          <span class="figure_twittershare">Twitterにシェアする</span>
                         </label><br>
-                    
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">PHP</span>
-                        </label>
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">Laravel</span>
-                        </label>
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">SQL</span>
-                        </label>
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">SHELL</span>
-                        </label><br>
-                    
-                        <label>
-                          <input type="checkbox" name="radio" value="radiobtn">
-                          <span class="radio_figure">情報システム基礎知識(その他)</span>
-                        </label>
-                      </div>
-                      
+                        </div>
+                    </div>
                   </div>
                 </div>
-                <div class="modal_right" id="modal_right">
-                  <div class="s_time" id="s_time">
-                    <h3>学習時間</h3>
-                    <input class="inputs_day"type="text">
-                  </div>
-                  <div class="comment_twitter" id="comment_twitter">
-                     <h3>Twitter用コメント</h3>
-                     <input class="input_twitter"type="text">
-                     　<div class="radio-wrapL">
-                      <label>
-                        <input type="checkbox" name="radio" value="radiobtn">
-                        <span class="figure_twittershare">Twitterにシェアする</span>
-                      </label><br>
-                      </div>
-                  </div>
+                  <div class="modal_button" id="modal_button">
+                  　　<input type="submit" class="modal_button_figure" id="modal_button_figure" value="記録・投稿">
+                     <!-- <a href="" class="modal_button_figure" id="modal_button_figure">記録・投稿</a> -->
+                  </div>            
                 </div>
-              </div>
-              <div class="modal_button" id="modal_button">
-                 <a href="" class="modal_button_figure" id="modal_button_figure">記録・投稿</a>
-              </div>            
-            </div>
+              </form>
           </div>
           <div class="black-background" id="js-black-bg"></div>
         </div>
@@ -141,17 +181,40 @@
               <div class="hoursDataS" id="hoursDataS">
                  <div class="todayData" id="todayData">
                     <h3>Today</h3>
-                    <p class="study_figure">3</p>
+                    <p class="study_figure">
+                    <?php
+                    $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_time where study_day=:study_day');
+                    $stmt->bindParam(':study_day',$today);
+                    $stmt->execute();
+                    $study_time = $stmt->fetchColumn();
+                    echo $study_time
+                   ?>
+                    </p>
                     <p class="hour">hour</p>
                  </div>
                  <div class="monthData" id="monthData"> 
                      <h3>Month</h3>
-                     <p class="study_figure">120</p>
+                     <p class="study_figure">
+                     <?php
+                     $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_time where study_month=:this_month');
+                     $stmt->bindParam(':this_month',$this_month);
+                     $stmt->execute();
+                     $study_month_time = $stmt->fetchColumn();
+                     echo $study_month_time
+                     ?>
+                     </p>
                      <p class="hour">hour</p>
                  </div>
                  <div class="totalData" id="totalData">
                      <h3>Total</h3>
-                     <p class="study_figure">1384</p>
+                     <p class="study_figure">
+                     <?php
+                    $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_time');
+                    $stmt->execute();
+                    $study_time = $stmt->fetchColumn();
+                    echo $study_time
+                   ?>
+                     </p>
                      <p class="hour">hour</p>
                  </div>
               </div>
@@ -236,6 +299,39 @@
           <div class="circleData" id="circleData">
             <div class="langData" id="langData">
               <h2>学習言語</h2>
+              <?php
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 4');
+               $stmt->execute();
+               $Javascript = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 5');
+               $stmt->execute();
+               $CSS = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 6');
+               $stmt->execute();
+               $PHP = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 7');
+               $stmt->execute();
+               $HTML = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 8');
+               $stmt->execute();
+               $Laravel = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 9');
+               $stmt->execute();
+               $SQL = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 10');
+               $stmt->execute();
+               $SHELL = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 11');
+               $stmt->execute();
+               $other = $stmt->fetchColumn();
+              ?>
               <canvas id="myPieChart"　style="position: relative"; height="350";width="120"></canvas>
               <!-- CDN -->
 　            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
@@ -257,7 +353,7 @@
                           "#4A18EF",
                           "#3107BF",
                       ],
-                      data: [30,20,10,5,5,20,20,10],
+                      data: [<?php echo $Javascript?>,<?php echo $CSS?>,<?php echo $PHP?>,<?php echo $HTML?>,<?php echo $Laravel?>,<?php echo $SQL?>,<?php echo $SHELL?>,<?php echo $other?>],
                       borderAlign:'center',
                       borderWidth:0,
                       
@@ -299,6 +395,19 @@
             </div>
             <div class="contentsData" id="contentsData">
               <h2>学習チャート</h2>
+              <?php
+               $stmt = $pdo->prepare('SELECT count(study_content) FROM study_contents where study_content = 1');
+               $stmt->execute();
+               $N = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_content) FROM study_contents where study_content = 2');
+               $stmt->execute();
+               $Dotinstall = $stmt->fetchColumn();
+
+               $stmt = $pdo->prepare('SELECT count(study_content) FROM study_contents where study_content = 3');
+               $stmt->execute();
+               $Posse = $stmt->fetchColumn();
+              ?>
               <canvas id="myPieChart2"　style="position: relative"; height="300";width="120"></canvas>
               <!-- CDN -->
 　            <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
@@ -308,14 +417,14 @@
               var myPieChart = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                  labels: ["N予備校", "ドットインストール", "課題"],
+                  labels: ["N予備校", "ドットインストール", "Posse課題"],
                   datasets: [{
                       backgroundColor: [
                           "#2A46EC",
                           "#1B71BC",
                           "#21BCDE",
                       ],
-                      data: [40,20,40],
+                      data: [<?php echo $N?>,<?php echo $Dotinstall?>,<?php echo $Posse?>],
                       borderAlign:'center',
                       borderWidth:0,
                       

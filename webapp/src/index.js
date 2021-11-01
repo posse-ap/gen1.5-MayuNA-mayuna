@@ -12,6 +12,7 @@ function popupImage() {
   closePopUp(showBtn);
   // closePopUp(modalBtn);
   // closePopUp(modalBtn);
+  // closePopUp(modalBtn);
   // AppearPopUp(modal_main);
   
   function closePopUp(elem) {

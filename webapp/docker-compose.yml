@@ -34,7 +34,7 @@ services:                #アプリケーションを動かせるための記述
       - ./mysql/my.conf:/etc/mysql/conf.d
       
   phpmyadmin:
-    container_name: media_phpmyadmin
+    container_name: app_phpmyadmin
     image: phpmyadmin/phpmyadmin
     environment:
       - PMA_ARBITRARY=1 #自動で入れる設定

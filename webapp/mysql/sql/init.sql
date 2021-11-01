@@ -8,4 +8,23 @@ CREATE TABLE study_all (
   name VARCHAR(225) NOT NULL
 );
 
-INSERT INTO questions (id,name) VALUES ('1', 'N予備'), ('2', 'まゆ');
+
+DROP TABLE IF EXISTS study_time;
+CREATE TABLE study_time (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  study_day VARCHAR(225) NOT NULL,
+  study_month VARCHAR(225) NOT NULL,
+  study_hour VARCHAR(225) NOT NULL
+);
+
+DROP TABLE IF EXISTS study_contents;
+CREATE TABLE study_contents (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  study_content VARCHAR(225) NOT NULL
+);
+
+DROP TABLE IF EXISTS study_languages;
+CREATE TABLE study_languages (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  study_language VARCHAR(225) NOT NULL
+);
