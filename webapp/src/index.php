@@ -32,8 +32,6 @@ try{
   // print_r($today);
   
   $final_date = date('t');
-  echo $final_date;                  
-  
                 
 } catch (PDOException $e) {
   echo $e->getMessage() . PHP_EOL;
