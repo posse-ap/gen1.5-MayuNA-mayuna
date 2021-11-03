@@ -19,17 +19,22 @@ try{
 
   $contents_array = $_POST['contents_array'];
   foreach($contents_array as $content){
-    $result = $pdo->exec('INSERT INTO study_contents SET study_content="'. $content .'"');
+    $result = $pdo->exec('INSERT INTO study_contents SET study_content="'. $content .'",study_hour = "'. $_POST['study_hour'] .'"');
   }
 
   $languages_array = $_POST['languages_array'];
   foreach($languages_array as $language){
-    $result1 = $pdo->exec('INSERT INTO study_languages SET study_language="'. $language .'"');
+    $result1 = $pdo->exec('INSERT INTO study_languages SET study_language="'. $language .'",study_hour = "'. $_POST['study_hour'] .'"');
   }
 
   $today = date("Y-m-d");
   $this_month = date("Y-m");
   // print_r($today);
+  
+  $final_date = date('t');
+  echo $final_date;                  
+  
+                
 } catch (PDOException $e) {
   echo $e->getMessage() . PHP_EOL;
   exit;
@@ -227,9 +232,29 @@ try{
                 var myBar = new Chart(ctx, {
                     type: 'bar',                           //◆棒グラフ
                     data: {                                //◆データ
-                        labels: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'],     //ラベル名
+                        labels: [<?php
+                        for($i=1;$i<=$final_date;$i++){
+                          echo "'" . $i . "',";
+                        }
+                          ?>],     //ラベル名
                         datasets: [{                       //データ設定
-                            data: [3,4,5,3,0,0,4,2,2,8,8,2,2,1,7,4,4,3,3,3,2,2,6,2,2,1,1,1,7,8],          //データ内容
+                            data: [
+                              <?php
+                              
+                              $s=strtotime($this_month . "-01");
+                              $e=strtotime($this_month . "-" . $final_date);
+                              $secondsOfOneDay=60*60*24;         //1日あたりの秒数
+                              for($i=$s;$i<=$e;$i+=$secondsOfOneDay){
+                              $each_day = date("Y-m-d",$i);  //"Y-m-d"でもOK
+
+                              $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_time where study_day=:study_day');
+                              $stmt->bindParam(':study_day',$each_day);
+                              $stmt->execute();
+                              $each_study_hour = $stmt->fetchColumn();
+                              echo $each_study_hour . ",";
+                              }
+                              
+                              ?>],          //データ内容
                             backgroundColor: '#3BCFFF'  //背景色
                         }]
                     },
@@ -300,35 +325,35 @@ try{
             <div class="langData" id="langData">
               <h2>学習言語</h2>
               <?php
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 4');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 4');
                $stmt->execute();
                $Javascript = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 5');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 5');
                $stmt->execute();
                $CSS = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 6');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 6');
                $stmt->execute();
                $PHP = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 7');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 7');
                $stmt->execute();
                $HTML = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 8');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 8');
                $stmt->execute();
                $Laravel = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 9');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 9');
                $stmt->execute();
                $SQL = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 10');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 10');
                $stmt->execute();
                $SHELL = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_language) FROM study_languages where study_language = 11');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_languages where study_language = 11');
                $stmt->execute();
                $other = $stmt->fetchColumn();
               ?>
@@ -396,15 +421,15 @@ try{
             <div class="contentsData" id="contentsData">
               <h2>学習チャート</h2>
               <?php
-               $stmt = $pdo->prepare('SELECT count(study_content) FROM study_contents where study_content = 1');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_contents where study_content = 1');
                $stmt->execute();
                $N = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_content) FROM study_contents where study_content = 2');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_contents where study_content = 2');
                $stmt->execute();
                $Dotinstall = $stmt->fetchColumn();
 
-               $stmt = $pdo->prepare('SELECT count(study_content) FROM study_contents where study_content = 3');
+               $stmt = $pdo->prepare('SELECT sum(study_hour) FROM study_contents where study_content = 3');
                $stmt->execute();
                $Posse = $stmt->fetchColumn();
               ?>
@@ -466,6 +491,7 @@ try{
         </div>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <script src="index.js"></script>
   <script src="calendar1.js"></script>
   <script src="calendar2.js"></script>
