@@ -1,51 +1,42 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Place;
+use App\Question;
+use App\Choice;
 use Illuminate\Http\Request;
 
 class CrazyController extends Controller
 {
     public function index()
     {
-        $posts = [
-            [
-              'title' => '東京の難読地名クイズ',
-              'abstract' => 'これは東京の難読地名クイズです',
-            ],
-            [
-              'title' => '広島の難読地名クイズ',
-              'abstract' => 'これは広島の難読地名クイズです',
-            ],
-        ];
+        $items = Place::all();
 
 //controllerからviewへの変数の受け渡し
 //view('blade.phpの前についてる名前', 使いたい配列)
-        return view('quiztitle',compact('posts'));
+        return view('quiztitle',compact('items'));
     }
 
-    public function eachquiz()
+    public function quiz($place_id)
     {
-        $questions = [
-            [
-              'num' => '0',
-              'title' => '東京の難読地名クイズ',
-              'choice1' => 'たかなわ',
-              'choice2' => 'こうわ',
-              'choice3' => 'たかわ',
-            ],
-            [
-              'num' => '1',
-              'title' => '広島の難読地名クイズ',
-              'abstract' => 'これは広島の難読地名クイズです',
-              'choice1' => 'かめいど',
-              'choice2' => 'かめと',
-              'choice3' => 'かめど',
-            ],
-        ];
+        //$place_idを1か2か判断
+        $items = Place::find($place_id);
+
 
 //controllerからviewへの変数の受け渡し
 //view('blade.phpの前についてる名前', 使いたい配列)
-        return view('quiz',compact('questions'));
+        return view('quiz',compact('items'));
     }
+
+//     public function quiz()
+//     {
+//         $elements = Question::all();
+//         $items = Choice::all();
+
+//         }
+
+// //controllerからviewへの変数の受け渡し
+// //view('blade.phpの前についてる名前', 使いたい配列)
+//         return view('quiz',compact('elements','each_element'));
+//     }
 }

@@ -18,6 +18,7 @@ services:
       context: ./app
     volumes:
       - ../posse-3rd-laravel-study:/work/backend
+      - ./db/mysql/data:/var/lib/mysql
     depends_on: ["mysql"]
   nginx:
     build:

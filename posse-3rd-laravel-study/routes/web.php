@@ -44,7 +44,7 @@
 // Route::get('hello', 'HelloController@index');
 // Route::get('hello/other','HelloController@other');
 
-Route::get('/quiztitle', 'CrazyController@index');
+Route::get('/quiz', 'CrazyController@index');
 
-Route::get('/quiz', 'CrazyController@eachquiz');
+Route::get('/quiz/{place_id}', 'CrazyController@quiz')->name('quiz');
 

@@ -1,15 +1,13 @@
 @extends('layouts.app')
 <!-- layoutsフォルダの中のapp.blade.phpを継承 -->
 
-@section('title', '投稿クイズ一覧')
 
-@section('abstract')
-  @if(count($posts) > 0)
-    @foreach($posts as $post)
+@section('content')
+  @if(count($items) > 0)
+    @foreach($items as $item)
       <div class="card my-3">
         <div class="card-body">
-          <h5 class="card-title">{{$post['title']}}</h5>
-          <p class="card-text">{{$post['abstract']}}</p>
+           <a href="{{ route('quiz', ['place_id'=>$item->id]) }}">{{$item->name}}の難読地名クイズ</a>
         </div>
       </div>
     @endforeach
