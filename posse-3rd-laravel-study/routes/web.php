@@ -48,3 +48,6 @@ Route::get('/quiz', 'CrazyController@index');
 
 Route::get('/quiz/{place_id}', 'CrazyController@quiz')->name('quiz');
 
+// Route::get('/login', 'CrazyController@login');
+
+

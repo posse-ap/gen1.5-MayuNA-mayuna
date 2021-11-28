@@ -9,11 +9,7 @@
 
   <body>
           @yield('questions')
-            <!-- <div class="box" id = "answer_box_1">
-              <p id = "correct_result_1"></p><br><p>正解はたかなわです</p>
-            </div> -->
         <script src="/js/index.js"></script>
-        <!-- </div> -->
   </body>
 
 

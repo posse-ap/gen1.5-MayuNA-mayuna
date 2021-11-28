@@ -28,15 +28,18 @@ class CrazyController extends Controller
         return view('quiz',compact('items'));
     }
 
-//     public function quiz()
+//     public function login()
 //     {
-//         $elements = Question::all();
-//         $items = Choice::all();
+//         //$place_idを1か2か判断
+//         $items = [
+//             'a',
+//             'b'
+//         ];
 
-//         }
 
 // //controllerからviewへの変数の受け渡し
 // //view('blade.phpの前についてる名前', 使いたい配列)
-//         return view('quiz',compact('elements','each_element'));
+//         return view('login',compact('items'));
 //     }
+
 }
