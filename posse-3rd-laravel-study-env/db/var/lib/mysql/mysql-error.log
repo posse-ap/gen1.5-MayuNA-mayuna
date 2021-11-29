@@ -228,3 +228,17 @@ mbind: Operation not permitted
 2021-11-27T03:31:33.011608-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
 2021-11-27T03:31:33.576158-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
 2021-11-27T03:31:33.576504-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2021-11-29T00:22:19.182781-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2021-11-29T00:22:19.202010-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2021-11-29T00:22:19.298916-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2021-11-29T00:22:25.316436-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2021-11-29T00:22:28.117574-00:00 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2021-11-29T00:22:28.145170-00:00 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2021-11-29T00:22:28.344204-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2021-11-29T00:22:28.346559-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2021-11-29T00:22:28.395118-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2021-11-29T00:22:28.405152-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2021-11-29T00:22:28.460726-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2021-11-29T00:22:28.820520-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2021-11-29T00:22:28.822292-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+mbind: Operation not permitted

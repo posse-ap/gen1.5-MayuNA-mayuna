@@ -51,3 +51,7 @@ Route::get('/quiz/{place_id}', 'CrazyController@quiz')->name('quiz');
 // Route::get('/login', 'CrazyController@login');
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
