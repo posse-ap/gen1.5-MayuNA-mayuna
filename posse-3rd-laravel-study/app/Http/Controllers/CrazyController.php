@@ -28,6 +28,8 @@ class CrazyController extends Controller
         return view('quiz',compact('items'));
     }
 
+    
+
 //     public function login()
 //     {
 //         //$place_idを1か2か判断

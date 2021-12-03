@@ -2,7 +2,7 @@
 <!-- layoutsフォルダの中のapp.blade.phpを継承 -->
 
 
-@section('contents')
+@section('content')
   @if(count($items) > 0)
     @foreach($items as $item)
       <div class="card my-3">

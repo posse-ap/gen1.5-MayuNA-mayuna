@@ -9,5 +9,7 @@ class place extends Model
     public function questions(){
         return $this->hasMany('App\Question');
     }
+
+    protected $fillable = ['name'];
 }
 
