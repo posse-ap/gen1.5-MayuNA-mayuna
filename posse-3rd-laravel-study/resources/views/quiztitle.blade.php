@@ -7,6 +7,7 @@
     @foreach($items as $item)
       <div class="card my-3">
         <div class="card-body">
+            <!-- web.phpのnameに反映されるのがここのrouteの第一引数　-->
            <a href="{{ route('quiz', ['place_id'=>$item->id]) }}">{{$item->name}}の難読地名クイズ</a>
         </div>
       </div>

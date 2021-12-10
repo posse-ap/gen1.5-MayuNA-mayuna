@@ -25,12 +25,12 @@
                         <p class="card-text">管理画面</p>
                         <div class="card my-3">
                             <div class="card-body">
-                                <a href="">一覧</a>
+                                <a href="{{ url('all')}}">一覧</a>
                             </div>
                         </div>
                         <div class="card my-3">
                             <div class="card-body">
-                                <a href="">編集画面</a>
+                                <a href="{{ url('edit')}}">編集画面</a>
                             </div>
                         </div>
                     </div>

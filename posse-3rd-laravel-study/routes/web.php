@@ -72,3 +72,28 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/edit', 'CrazyController@edit');
+
+Route::get('/all', 'CrazyController@all');
+
+Route::post('/edit', 'CrazyController@add');
+
+Route::delete('edit/destroy/{id}', 'CrazyController@destroy');
+
+Route::get('/edit/{id}', 'CrazyController@editTitle');
+
+Route::patch('edit/update/{id}', 'CrazyController@update');
+
+Route::get('/edit/choice/{place_id}', 'CrazyController@editchoice')->name('editchoice');
+
+
+//choiceぞーん
+
+Route::delete('edit/choice/destroy/{choice_id}', 'CrazyController@choicedestroy');
+
+Route::patch('edit/choice/update/{choice_id}', 'CrazyController@choiceupdate');
+
+Route::get('edit/eachchoice/{choice_id}', 'CrazyController@editEachChoice');
+
+Route::post('/edit/choice/add', 'CrazyController@choiceadd');
