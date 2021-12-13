@@ -4,10 +4,12 @@
     <table class="table table-striped">
       @foreach($items->questions as $question)
       <tr>
+      <td>{{$question->id}}</td>
             @foreach($question->choices as $choice)
+            <td>{{$choice->choice_number}}</td>
             <td>{{$choice->name}}</td>
             <td>
-                <a class="btn btn-primary btn-sm" href="/edit/eachchoice/{{$choice->id}}">編集</a>
+                <a class="btn btn-primary btn-sm" href="/edit/choice/each/{{$choice->id}}">編集</a>
                 <form action="{{ action('CrazyController@choicedestroy', $choice->id) }}" id="form_{{ $choice->id }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('delete') }}
@@ -16,10 +18,20 @@
             </td>
             @endforeach
             <td>
-                <form method="post" action="{{ url('/edit/choice/add') }}">
+                <form method="post" action="{{ route('editchoice', ['place_id'=>$question->id]) }}">
                     {{ csrf_field() }}
                     <p>
-                      <input type="text" name="place_name" placeholder="選択肢">
+                      <input type="text" name="question_id" placeholder="問題番号" value="{{$choice->question_id}}">
+                    </p>
+                    <p>
+                      <input type="text" name="choice_number" placeholder="選択肢番号">
+                    </p>
+                    <p>
+                        <input type="text" name="choice_name" placeholder="選択肢">
+                    </p>
+                    <p>
+                        <input type="radio" name="valid" value="0" checked="checked">不正解の選択肢
+                        <input type="radio" name="valid" value="1">正解の選択肢
                     </p>
                     <p>
                       <input type="submit" value="追加">

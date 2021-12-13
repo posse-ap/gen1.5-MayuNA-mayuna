@@ -124,10 +124,13 @@ class CrazyController extends Controller
     public function choiceadd(Request $request) {
 
         $choice = new Choice();
+        $choice->question_id = $request->question_id;
         $choice->name = $request->choice_name;
+        $choice->choice_number = $request->choice_number;
+        $choice->valid = $request->valid;
         $choice->save();
 
-        return redirect('/edit');
+        return redirect('edit');
     }
 
 }

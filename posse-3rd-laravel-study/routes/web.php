@@ -85,15 +85,28 @@ Route::get('/edit/{id}', 'CrazyController@editTitle');
 
 Route::patch('edit/update/{id}', 'CrazyController@update');
 
-Route::get('/edit/choice/{place_id}', 'CrazyController@editchoice')->name('editchoice');
+
 
 
 //choiceぞーん
+
+Route::get('/edit/choice/{place_id}', 'CrazyController@editchoice')->name('editchoice');
 
 Route::delete('edit/choice/destroy/{choice_id}', 'CrazyController@choicedestroy');
 
 Route::patch('edit/choice/update/{choice_id}', 'CrazyController@choiceupdate');
 
-Route::get('edit/eachchoice/{choice_id}', 'CrazyController@editEachChoice');
+Route::get('edit/choice/each/{choice_id}', 'CrazyController@editEachChoice');
 
-Route::post('/edit/choice/add', 'CrazyController@choiceadd');
+// Route::group(['prefix' => 'choice'], function () {
+//     Route::get('new', 'CrazyController@new_index'); //入力
+//     Route::patch('new','CrazyController@new_confirm'); //確認
+//     Route::post('new', 'CrazyController@new_finish'); //完了
+//   });
+
+
+
+
+Route::post('/edit/choice/{place_id}', 'CrazyController@choiceadd');
+
+
