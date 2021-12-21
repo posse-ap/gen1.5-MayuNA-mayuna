@@ -109,4 +109,7 @@ Route::get('edit/choice/each/{choice_id}', 'CrazyController@editEachChoice');
 
 Route::post('/edit/choice/{place_id}', 'CrazyController@choiceadd');
 
+Route::post('edit/img/{question_id}', 'CrazyController@store')->name('question_id');
+
+// Route::post('/edit/question/{place_id}', 'CrazyController@questionadd')->name('editchoice');
 

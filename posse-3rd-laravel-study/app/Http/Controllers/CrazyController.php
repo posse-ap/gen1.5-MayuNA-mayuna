@@ -133,4 +133,45 @@ class CrazyController extends Controller
         return redirect('edit');
     }
 
+    public function store(Request $request,$id)
+    {
+
+        $question = Question::findOrFail($id);
+
+
+        $question->place_id = $request->input('place_id');
+        $question->question_number = $request->input('question_number');
+
+
+        // 画像ファイルの保存場所指定
+        if(request('image')){
+            $filename= $request->file('image')->getClientOriginalName(); //拡張子を含めたアップロードしたファイル名
+            $request->file('image')->storeAs('public',"image/$filename");
+
+        }
+        $question->image_url = "image/$filename";
+
+        // postを保存
+        $question->save();
+    }
+
+    // public function questionadd(Request $request) {
+
+    //     $question = new Question();
+    //     $question->place_id = $request->place_id;
+    //     $question->question_number = $request->question_number;
+
+    //     // 画像ファイルの保存場所指定
+    //     if(request('image')){
+    //         $filename= $request->file('image')->getClientOriginalName(); //拡張子を含めたアップロードしたファイル名
+    //         $request->file('image')->storeAs('public',"image/$filename");
+
+    //     }
+
+    //     $question->image_url = "image/$filename";
+
+    //     $question->save();
+
+    //     return redirect('edit');
+    // }
 }
