@@ -111,5 +111,7 @@ Route::post('/edit/choice/{place_id}', 'CrazyController@choiceadd');
 
 Route::post('edit/img/{question_id}', 'CrazyController@store')->name('question_id');
 
-// Route::post('/edit/question/{place_id}', 'CrazyController@questionadd')->name('editchoice');
+Route::get('edit/choice/add/{question_id}', 'CrazyController@addChoice');
+
+Route::post('edit/question/{place_id}', 'CrazyController@questionadd')->name('questionadd');
 

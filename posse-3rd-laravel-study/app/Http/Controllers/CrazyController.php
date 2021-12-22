@@ -84,7 +84,6 @@ class CrazyController extends Controller
         //$place_idを1か2か判断
         $items = Place::find($place_id);
 
-
 //controllerからviewへの変数の受け渡し
 //view('blade.phpの前についてる名前', 使いたい配列)
         return view('choice',compact('items'));
@@ -133,6 +132,7 @@ class CrazyController extends Controller
         return redirect('edit');
     }
 
+    //画像のアップロード
     public function store(Request $request,$id)
     {
 
@@ -155,23 +155,34 @@ class CrazyController extends Controller
         $question->save();
     }
 
-    // public function questionadd(Request $request) {
+    public function addchoice($question_id)
+    {
 
-    //     $question = new Question();
-    //     $question->place_id = $request->place_id;
-    //     $question->question_number = $request->question_number;
+        $question = Question::find($question_id);
 
-    //     // 画像ファイルの保存場所指定
-    //     if(request('image')){
-    //         $filename= $request->file('image')->getClientOriginalName(); //拡張子を含めたアップロードしたファイル名
-    //         $request->file('image')->storeAs('public',"image/$filename");
+//controllerからviewへの変数の受け渡し
+//view('blade.phpの前についてる名前', 使いたい配列)
+        return view('addChoices',compact('question'));
+    }
 
-    //     }
 
-    //     $question->image_url = "image/$filename";
+    public function questionadd(Request $request) {
 
-    //     $question->save();
+        $question = new Question();
+        $question->place_id = $request->place_id;
+        $question->question_number = $request->question_number;
 
-    //     return redirect('edit');
-    // }
+        // 画像ファイルの保存場所指定
+        if(request('image')){
+            $filename= $request->file('image')->getClientOriginalName(); //拡張子を含めたアップロードしたファイル名
+            $request->file('image')->storeAs('public',"image/$filename");
+
+        }
+
+        $question->image_url = "image/$filename";
+
+        $question->save();
+
+        return redirect('edit');
+    }
 }
