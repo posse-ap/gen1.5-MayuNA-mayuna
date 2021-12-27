@@ -12,20 +12,23 @@
                             @if(session('status'))<div class="alert alert-success" role="alert" onclick="this.classList.add('hidden')">{{ session('status') }}@endif
                             <table class="table table-striped">
                                 <!-- loop -->
-                                @foreach($items as $item)
-                                <tr>
-                                    <td>{{$item->id}}</td>
-                                    <td><a href="{{ route('editchoice', ['place_id'=>$item->id]) }}">{{$item->name}}</a></td>
-                                    <td>
-                                        <a class="btn btn-primary btn-sm" href="/edit/{{$item->id}}">編集</a>
-                                        <form action="{{ action('CrazyController@destroy', $item->id) }}" id="form_{{ $item->id }}" method="post">
-                                        {{ csrf_field() }}
-                                        {{ method_field('delete') }}
-                                        <a href="#" data-id="{{ $item->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
-                                        </form>
-                                    </td>
-                                </tr>
-                                @endforeach
+                                <tbody id="sortable">
+
+                                    @foreach($items as $item)
+                                    <tr>
+                                        <td>{{$item->id}}</td>
+                                        <td><a href="{{ route('editchoice', ['place_id'=>$item->id]) }}">{{$item->name}}</a></td>
+                                        <td>
+                                            <a class="btn btn-primary btn-sm" href="/edit/{{$item->id}}">編集</a>
+                                            <form action="{{ action('CrazyController@destroy', $item->id) }}" id="form_{{ $item->id }}" method="post">
+                                            {{ csrf_field() }}
+                                            {{ method_field('delete') }}
+                                            <a href="#" data-id="{{ $item->id }}" class="btn btn-danger btn-sm" onclick="deletePost(this);">削除</a>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                         <script>
@@ -47,6 +50,7 @@
                                   <input type="submit" value="追加">
                                 </p>
                         </form>
+
                 </div>
             </div>
         </div>
