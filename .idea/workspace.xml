@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="88777423-c5e0-4cab-a2b9-7497e941c682" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/#ib_16384_0.dblwr" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/#ib_16384_0.dblwr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/binlog.index" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/binlog.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/ib_logfile0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/laravel/choices.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/laravel/choices.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql-error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql-general.log" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql-general.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql-slow.log" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql-slow.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql.ibd" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/mysql.ibd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/undo_001" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/undo_001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/undo_002" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study-env/db/var/lib/mysql/undo_002" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study/app/Http/Controllers/CrazyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study/app/Http/Controllers/CrazyController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study/app/Question.php" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study/app/Question.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posse-3rd-laravel-study/resources/views/choice.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/posse-3rd-laravel-study/resources/views/choice.blade.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="22NKpZwFonNbpshAHREDcV23e9A" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="88777423-c5e0-4cab-a2b9-7497e941c682" name="Changes" comment="" />
+      <created>1639672795163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639672795163</updated>
+      <workItem from="1639672795170" duration="584000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
