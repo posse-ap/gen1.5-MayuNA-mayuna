@@ -14,6 +14,7 @@ ENV TZ=UTC \
 
 COPY --from=composer:2.0 /usr/bin/composer /usr/bin/composer
 
+
 RUN apt-get update && \
   apt-get -y install git libicu-dev libonig-dev libzip-dev unzip locales && \
   apt-get clean && \
@@ -24,6 +25,23 @@ RUN apt-get update && \
   docker-php-ext-install intl pdo_mysql zip bcmath && \
   composer config -g process-timeout 3600 && \
   composer config -g repos.packagist composer https://packagist.org
+
+  # curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
+  # apt-get install -y nodejs && \
+  # curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  # echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/+sources.list.d/yarn.list && \
+  # && \
+
+
+
+# Node.jsをインストール
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get install -y nodejs
+RUN npm i -g yarn
+# yarnをインストール
+# RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+# RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/+sources.list.d/yarn.list
+# RUN apt-get update && apt-get install yarn
 
 COPY ./usr/local/etc/php/php.ini /usr/local/etc/php/php.ini
 
