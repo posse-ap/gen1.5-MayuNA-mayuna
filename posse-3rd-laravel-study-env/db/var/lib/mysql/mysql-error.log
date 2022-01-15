@@ -358,3 +358,108 @@ mbind: Operation not permitted
 2021-12-25T05:23:02.718723-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
 2021-12-25T05:23:03.065423-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
 2021-12-25T05:23:03.066424-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2022-01-15T07:40:17.050351-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2022-01-15T07:40:17.104619-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2022-01-15T07:40:17.250736-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2022-01-15T07:40:21.573537-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2022-01-15T07:40:22.894656-00:00 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2022-01-15T07:40:22.926103-00:00 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2022-01-15T07:40:23.245371-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2022-01-15T07:40:23.247229-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2022-01-15T07:40:23.293535-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2022-01-15T07:40:23.298635-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2022-01-15T07:40:23.333788-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2022-01-15T07:40:23.753432-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2022-01-15T07:40:23.753923-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2022-01-15T08:04:30.302091-00:00 0 [System] [MY-013172] [Server] Received SHUTDOWN from user <via user signal>. Shutting down mysqld (Version: 8.0.27).
+2022-01-15T08:04:32.359379-00:00 0 [System] [MY-010910] [Server] /usr/sbin/mysqld: Shutdown complete (mysqld 8.0.27)  MySQL Community Server - GPL.
+2022-01-15T08:06:03.528476-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2022-01-15T08:06:03.548639-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2022-01-15T08:06:03.596402-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2022-01-15T08:06:05.857122-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2022-01-15T08:06:06.764466-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2022-01-15T08:06:06.766244-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2022-01-15T08:06:06.795304-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2022-01-15T08:06:06.797513-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2022-01-15T08:06:06.820043-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2022-01-15T08:06:07.502447-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2022-01-15T08:06:07.502530-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
+2022-01-15T08:16:36.215541-00:00 8 [ERROR] [MY-012095] [InnoDB] [FATAL] Tablespace id is 241 in the data dictionary but in file ./laravel/users.ibd it is 257!
+2022-01-15T08:16:36.216883-00:00 8 [ERROR] [MY-013183] [InnoDB] Assertion failure: fil0fil.cc:2631:ib::fatal triggered thread 140630384457472
+InnoDB: We intentionally generate a memory trap.
+InnoDB: Submit a detailed bug report to http://bugs.mysql.com.
+InnoDB: If you get repeated assertion failures or crashes, even
+InnoDB: immediately after the mysqld startup, there may be
+InnoDB: corruption in the InnoDB tablespace. Please refer to
+InnoDB: http://dev.mysql.com/doc/refman/8.0/en/forcing-innodb-recovery.html
+InnoDB: about forcing recovery.
+08:16:36 UTC - mysqld got signal 6 ;
+Most likely, you have hit a bug, but this error can also be caused by malfunctioning hardware.
+Thread pointer: 0x7fe6a4000f80
+Attempting backtrace. You can use the following information to find out
+where mysqld died. If you see no messages after this, something went
+terribly wrong...
+stack_bottom = 7fe7101c2d90 thread_stack 0x100000
+/usr/sbin/mysqld(my_print_stacktrace(unsigned char const*, unsigned long)+0x3d) [0x562692611a5d]
+/usr/sbin/mysqld(handle_fatal_signal+0x32b) [0x5626916a269b]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x12730) [0x7fe720511730]
+/lib/x86_64-linux-gnu/libc.so.6(gsignal+0x10b) [0x7fe71fc277bb]
+/lib/x86_64-linux-gnu/libc.so.6(abort+0x121) [0x7fe71fc12535]
+/usr/sbin/mysqld(+0xee192b) [0x5626913f392b]
+/usr/sbin/mysqld(ib::fatal::~fatal()+0xda) [0x5626928d444a]
+/usr/sbin/mysqld(Fil_shard::get_file_size(fil_node_t*, bool)+0x423) [0x562692a16803]
+/usr/sbin/mysqld(Fil_shard::open_file(fil_node_t*, bool)+0x24e) [0x562692a1ecee]
+/usr/sbin/mysqld(Fil_shard::prepare_file_for_io(fil_node_t*, bool)+0x94) [0x562692a1ee24]
+/usr/sbin/mysqld(Fil_shard::do_io(IORequest const&, bool, page_id_t const&, page_size_t const&, unsigned long, unsigned long, void*, void*)+0x17b) [0x562692a2760b]
+/usr/sbin/mysqld(fil_io(IORequest const&, bool, page_id_t const&, page_size_t const&, unsigned long, unsigned long, void*, void*)+0x57) [0x562692a28257]
+/usr/sbin/mysqld(buf_read_page_low(dberr_t*, bool, unsigned long, unsigned long, page_id_t const&, page_size_t const&, bool)+0x198) [0x562692965c18]
+/usr/sbin/mysqld(buf_read_page(page_id_t const&, page_size_t const&)+0x46) [0x5626929661c6]
+/usr/sbin/mysqld(Buf_fetch<Buf_fetch_normal>::read_page()+0x35) [0x562692931465]
+/usr/sbin/mysqld(Buf_fetch_normal::get(buf_block_t*&)+0xa0) [0x562692939de0]
+/usr/sbin/mysqld(Buf_fetch<Buf_fetch_normal>::single_page()+0x52) [0x56269293a392]
+/usr/sbin/mysqld(buf_page_get_gen(page_id_t const&, page_size_t const&, unsigned long, buf_block_t*, Page_fetch, char const*, unsigned long, mtr_t*, bool)+0x1cd) [0x56269293abed]
+/usr/sbin/mysqld(btr_cur_search_to_nth_level(dict_index_t*, unsigned long, dtuple_t const*, page_cur_mode_t, unsigned long, btr_cur_t*, unsigned long, char const*, unsigned long, mtr_t*)+0x605) [0x5626929191a5]
+/usr/sbin/mysqld(row_search_mvcc(unsigned char*, page_cur_mode_t, row_prebuilt_t*, unsigned long, unsigned long)+0x1ab4) [0x5626928478a4]
+/usr/sbin/mysqld(ha_innobase::index_read(unsigned char*, unsigned char const*, unsigned int, ha_rkey_function)+0x331) [0x5626926f9201]
+/usr/sbin/mysqld(handler::ha_index_read_map(unsigned char*, unsigned char const*, unsigned long, ha_rkey_function)+0x357) [0x5626917ae1a7]
+/usr/sbin/mysqld(+0x100b1e3) [0x56269151d1e3]
+/usr/sbin/mysqld(join_read_const_table(JOIN_TAB*, POSITION*)+0x8a) [0x56269151d2ca]
+/usr/sbin/mysqld(JOIN::extract_func_dependent_tables()+0x4b8) [0x56269153dfc8]
+/usr/sbin/mysqld(JOIN::make_join_plan()+0x10df) [0x5626915509ef]
+/usr/sbin/mysqld(JOIN::optimize(bool)+0x10e8) [0x562691552498]
+/usr/sbin/mysqld(Query_block::optimize(THD*, bool)+0xbd) [0x5626915b2c8d]
+/usr/sbin/mysqld(Query_expression::optimize(THD*, TABLE*, bool, bool)+0x8e) [0x562691628fbe]
+/usr/sbin/mysqld(Sql_cmd_dml::execute_inner(THD*)+0x30) [0x5626915b19a0]
+/usr/sbin/mysqld(Sql_cmd_dml::execute(THD*)+0x2e5) [0x5626915b9ef5]
+/usr/sbin/mysqld(mysql_execute_command(THD*, bool)+0xaaf) [0x56269155b5df]
+/usr/sbin/mysqld(Prepared_statement::execute(String*, bool)+0x8b8) [0x56269158a138]
+/usr/sbin/mysqld(Prepared_statement::execute_loop(String*, bool)+0x110) [0x56269158e720]
+/usr/sbin/mysqld(mysqld_stmt_execute(THD*, Prepared_statement*, bool, unsigned long, PS_PARAM*)+0x1a1) [0x56269158ed51]
+/usr/sbin/mysqld(dispatch_command(THD*, COM_DATA const*, enum_server_command)+0x27df) [0x562691562def]
+/usr/sbin/mysqld(do_command(THD*)+0x19c) [0x56269156357c]
+/usr/sbin/mysqld(+0x1181960) [0x562691693960]
+/usr/sbin/mysqld(+0x2645ae4) [0x562692b57ae4]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x7fa3) [0x7fe720506fa3]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x3f) [0x7fe71fce94cf]
+
+Trying to get some variables.
+Some pointers may be invalid and cause the dump to abort.
+Query (7fe6a4269800): select count(*) as aggregate from `users` where `email` = 'mayuchaichai@gmail.com'
+Connection ID (thread ID): 8
+Status: NOT_KILLED
+
+The manual page at http://dev.mysql.com/doc/mysql/en/crashing.html contains
+information that should help you find out what is causing the crash.
+2022-01-15T08:28:42.706182-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.27) starting as process 1
+2022-01-15T08:28:42.736838-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2022-01-15T08:28:42.877795-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2022-01-15T08:28:48.402254-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2022-01-15T08:28:50.846392-00:00 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2022-01-15T08:28:51.031427-00:00 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2022-01-15T08:28:51.346221-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1 is enabled for channel mysql_main
+2022-01-15T08:28:51.349718-00:00 0 [Warning] [MY-013746] [Server] A deprecated TLS version TLSv1.1 is enabled for channel mysql_main
+2022-01-15T08:28:51.413068-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2022-01-15T08:28:51.416831-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2022-01-15T08:28:51.465794-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2022-01-15T08:28:52.014322-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+2022-01-15T08:28:52.014868-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.27'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  MySQL Community Server - GPL.
