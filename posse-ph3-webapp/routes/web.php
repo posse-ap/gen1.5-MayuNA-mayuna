@@ -21,3 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //webapp
 Route::get('/home/webapp', 'WebappController@webapp')->name('webapp_home');
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
+
+Route::get('/testmail', function(){
+    Mail::to('test@example.com')->send(new TestMail);
+    return 'メール送信完了';
+});

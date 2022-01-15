@@ -27,3 +27,10 @@ services:
     volumes:
       - ../posse-ph3-webapp:/work/backend
     depends_on: ["phpfpm"]
+
+### Mailhog ################################################
+  mailhog:
+      image: mailhog/mailhog #追加
+      ports:
+        - "1025:1025"
+        - "8025:8025"
