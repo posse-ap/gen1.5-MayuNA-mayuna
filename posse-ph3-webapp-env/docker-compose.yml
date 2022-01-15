@@ -25,5 +25,5 @@ services:
     ports:
       - 80:80
     volumes:
-      - ../posse-ph3-webapp-env:/work/backend
+      - ../posse-ph3-webapp:/work/backend
     depends_on: ["phpfpm"]
