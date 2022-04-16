@@ -64,3 +64,20 @@ Time                 Id Command    Argument
 /usr/sbin/mysqld, Version: 8.0.27 (MySQL Community Server - GPL). started with:
 Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
 Time                 Id Command    Argument
+/usr/sbin/mysqld, Version: 8.0.27 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+/usr/sbin/mysqld, Version: 8.0.27 (MySQL Community Server - GPL). started with:
+Tcp port: 3306  Unix socket: /var/run/mysqld/mysqld.sock
+Time                 Id Command    Argument
+# Time: 2022-03-14T09:22:00.955230-00:00
+# User@Host: laravel[laravel] @  [192.168.32.4]  Id:    72
+# Query_time: 1.010808  Lock_time: 0.000000 Rows_sent: 1  Rows_examined: 6
+use laravel;
+SET timestamp=1647249719;
+# administrator command: Close stmt;
+# Time: 2022-03-14T09:49:39.088914-00:00
+# User@Host: laravel[laravel] @  [192.168.32.4]  Id:    85
+# Query_time: 1.011261  Lock_time: 0.000000 Rows_sent: 0  Rows_examined: 9
+SET timestamp=1647251378;
+# administrator command: Quit;

@@ -25,7 +25,7 @@ Route::group(['prefix' => 'home'], function () {
     Route::get('/webapp', 'WebappController@webapp')->name('webapp_home');
 });
 
-//webapp
+//webapp 
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;

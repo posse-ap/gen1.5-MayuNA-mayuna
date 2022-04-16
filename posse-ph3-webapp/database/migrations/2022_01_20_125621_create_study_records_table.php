@@ -16,10 +16,10 @@ class CreateStudyRecordsTable extends Migration
         Schema::create('study_records', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('day');
-            $table->timestamps('contents');
-            $table->timestamps('languages');
-            $table->string('time');
-            $table->text('comment_twitter');
+            $table->integer('content_status');
+            $table->integer('language_status');
+            $table->integer('time');
+            $table->string('comment_twitter');
             $table->boolean('share_twitter');
             $table->timestamps();
         });
